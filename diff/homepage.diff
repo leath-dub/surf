@@ -1,0 +1,23 @@
+--- a/config.def.h
++++ b/config.def.h
+@@ -7,6 +7,9 @@
+ static char *cachedir       = "~/.surf/cache/";
+ static char *cookiefile     = "~/.surf/cookies.txt";
+ 
++/* homepage */
++static const char *cfg_homepage = "https://duckduckgo.com";
++
+ /* Webkit default features */
+ /* Highest priority value will be used.
+  * Default parameters are priority 0
+--- a/surf.c
++++ b/surf.c
+@@ -2133,7 +2133,7 @@ main(int argc, char *argv[])
+ 	if (argc > 0)
+ 		arg.v = argv[0];
+ 	else
+-		arg.v = "about:blank";
++		arg.v = cfg_homepage;
+ 
+ 	setup();
+ 	c = newclient(NULL);
